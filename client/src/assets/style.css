@@ -1,0 +1,95 @@
+.main-container {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #6DD5FF 0%, #2886A5 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.section {
+    display: flex;
+    gap: 20px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.form-container {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form-container button {
+    padding: 10px;
+    background-color: #6DD5FF;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.input-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 0;
+}
+
+.input-form input {
+    background-color: #E5E5E5;
+    width: 300px;
+    padding: 15px 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.scanner-container {
+    background-color: #F0DD34;
+    padding: 20px;
+    border-radius: 0 10px 10px 0;
+    min-width: 300px;
+}
+
+.scanner-container button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.scan-text {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.qrcode {
+    border: 2px solid #000;
+    padding: 20px;
+}
+
+.qr-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 720px) {
+    .section {
+        flex-direction: column;
+    }
+}

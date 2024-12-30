@@ -4,7 +4,8 @@ import { toPng } from 'html-to-image';
 
 function QRCode() {
     const [data, setData] = useState('')
-    const [name, setName] = useState('')
+    const [firstName, setFirstName] = useState('')
+    const [lastname, setLastName] = useState('')
     const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
     const [company, setCompany] = useState('')
@@ -14,14 +15,16 @@ function QRCode() {
 
     const generate = (e) => {
         e.preventDefault()
-        const vCard = `BEGIN:VCARD
-VERSION:3.0
-FN:${name}
-TEL:${phone}
-EMAIL:${email}
-ORG:${company}
-URL:${url}
-END:VCARD`;
+        //         const vCard = `BEGIN:VCARD
+        // VERSION:3.0
+        // FN:${name}
+        // TEL:${phone}
+        // EMAIL:${email}
+        // ORG:${company}
+        // URL:${url}
+        // END:VCARD`;
+
+        const vCard = `BEGIN:VCARD\r\nVERSION:3.0\r\nFN:${firstName}\r\nN:${lastname};;;\r\nTEL:${phone}\r\nEMAIL:${email}\r\nORG:${company}\r\nURL:${url}\r\nEND:VCARD`;
 
         setData(vCard)
 
@@ -46,9 +49,16 @@ END:VCARD`;
                         <form className='input-form' onSubmit={generate}>
                             <input
                                 type="text"
-                                placeholder="Full Name"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
+                                placeholder="First Name"
+                                value={firstName}
+                                onChange={(e) => setFirstName(e.target.value)}
+                                required
+                            />
+                            <input
+                                type="text"
+                                placeholder="Last Name"
+                                value={lastname}
+                                onChange={(e) => setLastName(e.target.value)}
                                 required
                             />
                             <input

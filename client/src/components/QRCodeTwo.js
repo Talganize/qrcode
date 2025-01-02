@@ -2,9 +2,10 @@ import React, { useRef, useState } from 'react'
 import { QRCodeSVG } from "qrcode.react";
 import { toPng } from 'html-to-image';
 
-function QRCode() {
+function QRCodeTwo() {
     const [data, setData] = useState('')
     const [firstName, setFirstName] = useState('')
+    const [lastname, setLastName] = useState('')
     const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
     const [company, setCompany] = useState('')
@@ -15,9 +16,7 @@ function QRCode() {
     const generate = (e) => {
         e.preventDefault()
 
-        const vCard = `BEGIN:VCARD\r\nVERSION:3.0\r\nFN:${firstName}\r\nTEL:${phone}\r\nEMAIL:${email}\r\nORG:${company}\r\nURL:${url}\r\nEND:VCARD`;
-
-
+        const vCard = `BEGIN:VCARD\r\nVERSION:3.0\r\nFN:${firstName} ${lastname}\r\nN:${lastname};${firstName};;;\r\nTEL:${phone}\r\nEMAIL:${email}\r\nORG:${company}\r\nURL:${url}\r\nEND:VCARD`;
         setData(vCard)
 
     }
@@ -34,7 +33,6 @@ function QRCode() {
 
     return (
         <div className='main-container'>
-
             <div className='section'>
                 <div className='form-container'>
                     <div className=''>
@@ -42,9 +40,16 @@ function QRCode() {
                         <form className='input-form' onSubmit={generate}>
                             <input
                                 type="text"
-                                placeholder="Name"
+                                placeholder="First Name"
                                 value={firstName}
                                 onChange={(e) => setFirstName(e.target.value)}
+                                required
+                            />
+                            <input
+                                type="text"
+                                placeholder="Last Name"
+                                value={lastname}
+                                onChange={(e) => setLastName(e.target.value)}
                                 required
                             />
                             <input
@@ -109,4 +114,4 @@ function QRCode() {
     )
 }
 
-export default QRCode
+export default QRCodeTwo
